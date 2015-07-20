@@ -5,7 +5,7 @@ import time
 import sys
 import datetime
 
-webToken1 = '<INSERT-LOG-TOKEN>'
+webToken1 = '4b31af3b-796d-4444-9d43-e4e599b0876f'
 
 
 webMessage = [
@@ -118,7 +118,7 @@ def send_messages():
 
 def main():
     while True:
-        this_time = random.randint(1, 20)
+        this_time = random.randint(1, 10)
         print this_time
 
         time.sleep(this_time)
