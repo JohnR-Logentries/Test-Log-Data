@@ -5,30 +5,30 @@ import socket
 import time
 import datetime
 
-# Input your Logentries tokens bleow.   For just one token use ['token1']
+# Input your Logentries tokens below.   For just one token use ['token1']
 WEBTOKENS = ['token1', 'token2']
 
 def apache_access(tokens):
     ''' Define the log content to generate from '''
     webMessage = [
-       '{ "time":"[TIMESTAMP +0000]", "remoteIP":"REMOTEIP", "host":"Server 1", "request":"REQUEST", "query":"", "method":"GET", "status":"STATUS", "duration":"DURATION", "bytes":"BYTES", "userAgent":"USERAGENT", "referer":"-" }',
-       '{ "time":"[TIMESTAMP +0000]", "remoteIP":"REMOTEIP", "host":"Server 2", "request":"REQUEST", "query":"", "method":"GET", "status":"STATUS", "duration":"DURATION", "bytes":"BYTES", "userAgent":"USERAGENT", "referer":"-" }',
-       '{ "time":"[TIMESTAMP +0000]", "remoteIP":"REMOTEIP", "host":"Server 3", "request":"REQUEST", "query":"", "method":"GET", "status":"STATUS", "duration":"DURATION", "bytes":"BYTES", "userAgent":"USERAGENT", "referer":"-" }',
-       '{ "time":"[TIMESTAMP +0000]", "remoteIP":"REMOTEIP", "host":"Server 4", "request":"REQUEST", "query":"", "method":"GET", "status":"STATUS", "duration":"DURATION", "bytes":"BYTES", "userAgent":"USERAGENT", "referer":"-" }'
+	   '{ "time":"[TIMESTAMP +0000]", "remoteIP":"REMOTEIP", "host":"Server 1", "request":"REQUEST", "query":"", "method":"GET", "status":"STATUS", "duration":"DURATION", "bytes":"BYTES", "userAgent":"USERAGENT", "referer":"-" }',
+	   '{ "time":"[TIMESTAMP +0000]", "remoteIP":"REMOTEIP", "host":"Server 2", "request":"REQUEST", "query":"", "method":"GET", "status":"STATUS", "duration":"DURATION", "bytes":"BYTES", "userAgent":"USERAGENT", "referer":"-" }',
+	   '{ "time":"[TIMESTAMP +0000]", "remoteIP":"REMOTEIP", "host":"Server 3", "request":"REQUEST", "query":"", "method":"GET", "status":"STATUS", "duration":"DURATION", "bytes":"BYTES", "userAgent":"USERAGENT", "referer":"-" }',
+	   '{ "time":"[TIMESTAMP +0000]", "remoteIP":"REMOTEIP", "host":"Server 4", "request":"REQUEST", "query":"", "method":"GET", "status":"STATUS", "duration":"DURATION", "bytes":"BYTES", "userAgent":"USERAGENT", "referer":"-" }'
     ]
 
     requestList = [
-       '/account',
-       '/home',
-       '/docs',
-       '/account',
-       '/order'
+	   '/account',
+	   '/home',
+	   '/docs',
+	   '/account',
+	   '/order'
     ]
 
     userAgent = [
-       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36',
-       'Mozilla/5.0 (Windows NT 7.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
-       'Mozilla/5.0 (Windows; U; Windows NT 6.1; rv:2.2) Gecko/20110201'
+	   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36',
+	   'Mozilla/5.0 (Windows NT 7.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36',
+	   'Mozilla/5.0 (Windows; U; Windows NT 6.1; rv:2.2) Gecko/20110201'
     ]
 
     ipOctet1 = ['127', '212']
@@ -91,6 +91,7 @@ def apache_access(tokens):
         if "DURATION" in w1:
             n_w1 = n_w1.replace("DURATION", str(randomDuration))
 
+        print n_w1
         HOST = 'api.logentries.com'
         PORT = 10000
 
