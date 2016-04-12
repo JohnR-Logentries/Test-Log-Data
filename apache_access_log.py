@@ -92,8 +92,8 @@ def apache_access(tokens):
             n_w1 = n_w1.replace("DURATION", str(randomDuration))
 
         print n_w1
-        HOST = 'api.logentries.com'
-        PORT = 10000
+        HOST = 'data.logentries.com'
+        PORT = 80
 
         for token in tokens:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
